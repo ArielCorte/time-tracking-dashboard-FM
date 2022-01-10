@@ -20,11 +20,16 @@ body {
   background-color: var(--Very-dark-blue);
   margin: 0;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
 }
 
 * {
   box-sizing: inherit;
-  font-family: 'Rubik', sans-serif;;
+  font-family: 'Rubik', sans-serif;
 }
 
 /* ---Grid display--- */
@@ -32,10 +37,8 @@ body {
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 3rem 2rem;
+  grid-gap: 2rem;
   width: 80vw;
-  margin: auto;
-  margin-top: 5rem;
 }
 
 /* ---Card--- */
@@ -43,43 +46,84 @@ body {
 /* ---Card Header--- */
 
 .card-header {
-  width: 100%;
-  height: 120%;
-  background-color: var(--Light-red-work);
+  position: relative;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: hidden;
+}
+
+.taskIcon {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  z-index: 100;
 }
 
 .work {
-  background-color: var(--Light-red-work);
+  background: linear-gradient(
+    180deg,
+    var(--Light-red-work),
+    var(--Light-red-work) 64%,
+    #1c1f4a 66%,
+    #1c1f4a
+  );
 }
 
 .study {
-  background-color: var(--Light-red-study);
+  background: linear-gradient(
+    180deg,
+    var(--Light-red-study),
+    var(--Light-red-study) 64%,
+    #1c1f4a 66%,
+    #1c1f4a
+  );
 }
 
 .play {
-  background-color: var(--Soft-blue-play);
+  background: linear-gradient(
+    180deg,
+    var(--Soft-blue-play),
+    var(--Soft-blue-play) 64%,
+    #1c1f4a 66%,
+    #1c1f4a
+  );
 }
 
 .exercise {
-  background-color: var(--Lime-green-exercise);
+  background: linear-gradient(
+    180deg,
+    var(--Lime-green-exercise),
+    var(--Lime-green-exercise) 64%,
+    #1c1f4a 66%,
+    #1c1f4a
+  );
 }
 
 .self-care {
-  background-color: var(--Soft-orange-self-care);
+  background: linear-gradient(
+    180deg,
+    var(--Soft-orange-self-care),
+    var(--Soft-orange-self-care) 64%,
+    #1c1f4a 66%,
+    #1c1f4a
+  );
 }
 
 .social {
-  background-color: var(--Violet-social);
+  background: linear-gradient(
+    180deg,
+    var(--Violet-social),
+    var(--Violet-social) 64%,
+    #1c1f4a 66%,
+    #1c1f4a
+  );
 }
 
 /* ---Card container--- */
 
 .card-container {
-  display: inline-block;
   flex-direction: column;
   width: 100%;
   background-color: var(--Dark-blue);
@@ -87,6 +131,8 @@ body {
   color: #fff;
   padding: 2rem;
   cursor: pointer;
+  margin-top: 3rem;
+  z-index: 1000;
 }
 
 .card-container:hover {
@@ -96,21 +142,26 @@ body {
 .card-title {
   display: flex;
   justify-content: space-between;
+  text-transform: capitalize;
 }
 
 .task {
   font-weight: 500;
   font-size: 1rem;
+  margin: 0;
 }
 
 .btn-configure {
   display: flex;
   align-items: center;
+  padding: 0.1rem;
 }
 
 .hours {
   font-weight: 300;
   font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .previous-time {
@@ -121,33 +172,60 @@ body {
 
 .profileWrapper {
   grid-row: 1 / 3;
+  background-color: var(--Dark-blue);
+  border-radius: 1rem;
 }
 
 .profileInfo {
   width: 100%;
-  height: 70%;
+  min-height: 70%;
   background-color: var(--Primary-blue);
   border-radius: 1rem;
+  padding: 2rem;
 }
 
-.viewMode {
-  background-color: var(--Dark-blue);
-  border-radius: 1rem;
-  width: 100%;
-  height: 100%;
+.profileInfo img {
+  width: 50%;
+  border: #fff solid;
+  border-radius: 50%;
 }
 
-.viewMode ul {
-  display: inline-block;
-  align-self: flex-end;
-  list-style-type: none;
+.profileInfo .profileName {
+  padding-top: 2rem;
+}
+
+.profileInfo label {
+  color: var(--Pale-Blue);
+}
+
+.profileInfo h1 {
+  font-weight: 300;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.timeframes-list {
   color: var(--Pale-Blue);
   font-size: 1.1rem;
+  margin: 0;
+  padding: 1.5rem 2rem;
 }
 
-.viewMode ul li {
-  margin: 1rem 0;
+.timeframes-list label {
+  margin: 0;
+  padding-bottom: 1rem;
   cursor: pointer;
+  display: block;
 }
 
+.timeframes-list label:hover {
+  color: #fff;
+}
 
+.timeframes-list input {
+  display: none;
+}
+
+input:checked + label {
+  color: #fff;
+}
